@@ -37,3 +37,27 @@ function colorCode(str)
 
 	return ''+r+g+b;
 }
+
+function colorCodeInverse(color)
+{
+        var colorInverse;
+        var r;
+        var g;
+        var b;
+
+        colorInverse = parseInt(color, 16);
+        r = 255 - ((colorInverse & 0xff0000) >> 16);
+        g = 255 - ((colorInverse & 0x00ff00) >> 8);
+        b = 255 - (colorInverse & 0x0000ff);
+
+        r = r.toString(16);
+        g = g.toString(16);
+        b = b.toString(16);
+
+        if(r.length === 1) r = '0'+r;
+        if(g.length === 1) g = '0'+g;
+        if(b.length === 1) b = '0'+b;
+
+        return ''+r+g+b;
+}
+
